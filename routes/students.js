@@ -40,6 +40,12 @@ router.put("/:id", async (req, res) => {
 		const targetStudent = Student.findByPk(req.params.id);
 		targetStudent.firstName = req.body.firstName;
 		res.status(200).json(targetStudent);
+
+		// let updatedStudentInfo = await Student.updatedStudentInfo(req.body, {
+		//     where: {id: req.params.id},
+		//     returning:true,
+		//     plain:true,
+		// })
 	} catch (error) {
 		next(error);
 	}
